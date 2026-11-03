@@ -192,6 +192,14 @@
     .douyin-popover .douyin-instruction { text-align:center; font-size:12px; color:#6c7c8b; margin:0; }
     @media (max-width:610px) { .douyin-popover { width:min(320px,calc(100vw - 42px)); padding:12px; } }
     @media (prefers-reduced-motion:reduce) { .douyin-trigger,.douyin-popover { transition:none!important; } }
+
+    /* Linked official research resources within project entries */
+    .project-resource-links { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-top:13px; }
+    .project-resource-links a { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:36px; padding:7px 12px; border:1px solid #c9dbe6; border-radius:7px; color:#275e80; background:linear-gradient(130deg,#f7fafc,#fff); font:600 12.5px/1.35 var(--sans); text-decoration:none; transition:background .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease; }
+    .project-resource-links a:hover { background:#edf6fa; border-color:#8ebbd0; box-shadow:0 3px 11px rgba(42,108,148,.09); transform:translateY(-1px); text-decoration:none; }
+    .project-resource-links a:focus-visible { outline:3px solid #9ec3d9; outline-offset:3px; }
+    .project-resource-links .resource-arrow { font-size:13px; opacity:.72; line-height:1; }
+    @media (prefers-reduced-motion:reduce) { .project-resource-links a { transition:none!important; } .project-resource-links a:hover { transform:none; } }
   </style>
 </head>
 <body>
@@ -293,7 +301,13 @@
 
   <section id="projects" aria-labelledby="projects-heading">
     <h2 id="projects-heading" data-en="Selected Projects" data-zh="代表性项目">Selected Projects</h2>
-    <article class="project"><div class="kind" data-en="Foundation Models" data-zh="基础模型">Foundation Models</div><div><h3><a href="https://github.com/river505/LimiX" target="_blank" rel="noopener noreferrer">LimiX</a></h3><p data-en="Model development and practical research in general-purpose structured-data intelligence." data-zh="面向通用结构化数据智能的模型研发与实证研究。">Model development and practical research in general-purpose structured-data intelligence.</p></div></article>
+    <article class="project"><div class="kind" data-en="Foundation Models" data-zh="基础模型">Foundation Models</div><div><h3><a href="https://www.stable-ai.ai/limix" target="_blank" rel="noopener noreferrer">LimiX</a></h3><p data-en="Model development and practical research in general-purpose structured-data intelligence." data-zh="面向通用结构化数据智能的模型研发与实证研究。">Model development and practical research in general-purpose structured-data intelligence.</p>
+      <div class="project-resource-links" aria-label="LimiX research resources">
+        <a href="https://www.stable-ai.ai/limix" target="_blank" rel="noopener noreferrer"><span data-en="Stable AI Website" data-zh="Stable AI 官网">Stable AI Website</span><span class="resource-arrow" aria-hidden="true">↗</span></a>
+        <a href="https://github.com/limix-ldm-ai/LimiX" target="_blank" rel="noopener noreferrer"><span data-en="Official GitHub" data-zh="官方 GitHub">Official GitHub</span><span class="resource-arrow" aria-hidden="true">↗</span></a>
+        <a href="https://huggingface.co/stable-ai/LimiX-2" target="_blank" rel="noopener noreferrer"><span>Hugging Face</span><span class="resource-arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </div></article>
     <article class="project"><div class="kind" data-en="Feature Learning" data-zh="特征工程">Feature Learning</div><div><h3><a href="https://github.com/river505/featureEngineering" target="_blank" rel="noopener noreferrer">Feature Engineering</a></h3><p data-en="Practical feature processing and experiments for structured datasets." data-zh="结构化数据的特征处理方法与实验。">Practical feature processing and experiments for structured datasets.</p></div></article>
     <article class="project"><div class="kind" data-en="Medical Image Generation" data-zh="医学图像生成">Medical Image Generation</div><div><h3 data-en="Retinal Fundus Image Generation" data-zh="眼底图像生成">Retinal Fundus Image Generation</h3><p data-en="Exploring generative approaches to retinal fundus images, with an emphasis on anatomical plausibility and biomedical research applications." data-zh="探索眼底图像生成方法，重点关注解剖结构合理性及其在医学研究中的应用。">Exploring generative approaches to retinal fundus images, with an emphasis on anatomical plausibility and biomedical research applications.</p></div></article>
     <article class="project"><div class="kind" data-en="Independent Project" data-zh="独立项目">Independent Project</div><div><h3><a href="https://ai-signal.uk" target="_blank" rel="noopener noreferrer">AI-Signal</a></h3><p data-en="An independent AI research and technology information platform covering emerging models, research papers, and technological developments." data-zh="独立开发的人工智能研究与技术资讯平台，聚焦前沿模型、学术论文与技术进展。">An independent AI research and technology information platform covering emerging models, research papers, and technological developments.</p>
