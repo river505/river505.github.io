@@ -117,9 +117,67 @@
       main { padding-bottom: 60px; }
     }
     @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none!important; } }
+
+    /* Subtle research-lab visual system: bright, legible, and dependency-free */
+    body { background: radial-gradient(ellipse 850px 400px at 93% 2%, rgba(48,136,188,.052), transparent 76%), #fff; }
+    header { box-shadow: 0 5px 21px rgba(25,55,79,.028); }
+    .reading-progress { position:fixed; top:0; left:0; height:3px; width:100%; z-index:100; pointer-events:none; background:linear-gradient(90deg,#245c92,#58b6ce 55%,#9bd9e3); transform:scaleX(0); transform-origin:left center; }
+    .brand::before { content:""; display:inline-block; width:7px; height:7px; border-radius:2px; margin-right:12px; vertical-align:3px; background:linear-gradient(135deg,#2b729a,#78c3d5); box-shadow:0 0 0 4px rgba(88,166,195,.10); }
+    .hero { position:relative; isolation:isolate; overflow:hidden; padding:41px 43px 43px; gap:48px; border:1px solid #dce8ef; border-radius:16px; background:
+       radial-gradient(ellipse 360px 290px at 100% 0%, rgba(52,139,182,.085), transparent 78%),
+       linear-gradient(rgba(63,137,177,.028) 1px, transparent 1px),
+       linear-gradient(90deg,rgba(63,137,177,.028) 1px, transparent 1px),
+       linear-gradient(138deg,#fbfdff 0%,#fff 70%);
+       background-size:auto,32px 32px,32px 32px,auto;
+       box-shadow:0 18px 55px rgba(28,68,102,.055),0 2px 8px rgba(28,68,102,.025);
+    }
+    .hero::before { content:""; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#306f9b 0%,#72c9d4 42%,rgba(114,201,212,0) 92%); z-index:1; pointer-events:none; }
+    .hero::after { content:""; position:absolute; width:380px; height:380px; right:-134px; top:-167px; border-radius:50%; background:repeating-radial-gradient(circle,transparent 0,transparent 38px,rgba(44,117,159,.12) 39px,transparent 40px,transparent 66px); z-index:0; pointer-events:none; }
+    .hero > * { position:relative; z-index:1; }
+    .position { color:#285677; }
+    .research-summary { border-left:2px solid #72b5cd; padding-left:12px; margin-top:17px; color:#516c81; }
+    .bio-lead { margin-top:24px; }
+    .profile-links { gap:10px 10px; }
+    .profile-links a { display:inline-flex; align-items:center; padding:6px 13px; border:1px solid #d6e3eb; border-radius:6px; background:rgba(255,255,255,.83); transition:transform .18s ease,border-color .18s ease,background .18s ease; }
+    .profile-links a:hover { transform:translateY(-2px); border-color:#9ebfd3; background:#f5faff; text-decoration:none; }
+    .profile-img { border:3px solid #fff; outline:1px solid #d4e1eb; border-radius:11px; box-shadow:0 16px 37px rgba(23,60,92,.12); }
+    section { scroll-margin-top:105px; }
+    section h2::before { background:linear-gradient(180deg,#2b7baf,#79cbd8); height:21px; }
+    .research-item { position:relative; overflow:hidden; background:linear-gradient(145deg,#fff 0%,#f8fbfd 100%); }
+    .research-item::before { content:""; position:absolute; top:0; left:0; width:100%; height:2px; background:linear-gradient(90deg,#317fb0,#8cd0db); transform:scaleX(.18); transform-origin:left; transition:transform .25s ease; }
+    .research-item:hover::before { transform:scaleX(1); }
+    .research-item:hover { border-color:#b7d5e6; box-shadow:0 9px 22px rgba(43,113,152,.065); }
+    .publication { border-radius:5px; transition:background .18s ease,box-shadow .18s ease; }
+    .publication:hover { background:linear-gradient(90deg,rgba(240,248,252,.64),transparent 70%); }
+    .publication .year { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:12px; letter-spacing:.045em; }
+    .metrics { box-shadow:0 5px 18px rgba(28,68,102,.025); background:linear-gradient(125deg,#fff,#f7fbfd); }
+    .metric strong { color:#275779; }
+    .project,.experience { border-radius:5px; transition:background .18s ease; }
+    .project:hover,.experience:hover { background:linear-gradient(90deg,rgba(240,248,252,.60),transparent 75%); }
+    .back-to-top { position:fixed; right:28px; bottom:27px; z-index:50; height:47px; display:flex; align-items:center; gap:9px; padding:0 16px; border:1px solid rgba(130,204,226,.36); border-radius:10px; background:linear-gradient(135deg,#1e547b 0%,#2c7798 100%); color:#fff; font:600 13px/1 var(--sans); letter-spacing:.01em; box-shadow:0 9px 28px rgba(28,91,130,.24); cursor:pointer; opacity:0; visibility:hidden; pointer-events:none; transform:translateY(12px); transition:opacity .22s ease,visibility .22s ease,transform .22s ease,box-shadow .22s ease; }
+    .back-to-top.is-visible { opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0); }
+    .back-to-top.is-visible:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(28,91,130,.31); }
+    .back-to-top .back-arrow { font-size:20px; line-height:1; font-weight:400; margin-top:-2px; }
+    .back-to-top:focus-visible { outline-color:#73bfd9; }
+    @media (max-width:850px) {
+      .hero { padding:32px; gap:28px; }
+    }
+    @media (max-width:610px) {
+      .hero { padding:27px 21px 29px; gap:21px; border-radius:12px; }
+      .hero::after { width:270px; height:270px; top:-100px; right:-110px; opacity:.72; }
+      .profile-links { gap:8px; }
+      .profile-links a { padding:5px 11px; font-size:13px; }
+      .research-summary { font-size:13px; }
+      .back-to-top { right:15px; bottom:16px; height:45px; padding:0 13px; border-radius:9px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .hero,.research-item,.publication,.project,.experience,.back-to-top,.profile-links a { transition:none!important; }
+      .research-item:hover,.profile-links a:hover,.back-to-top.is-visible:hover { transform:none; }
+    }
   </style>
 </head>
 <body>
+<div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
 <header><nav class="nav" aria-label="Primary navigation">
   <a class="brand" href="#top">Yunjia Zhang</a>
   <div class="nav-links">
@@ -235,10 +293,16 @@
     <p><a href="mailto:y_zhang@email.cugb.edu.cn">y_zhang@email.cugb.edu.cn</a> · <a href="https://github.com/river505">GitHub</a> · <a href="https://scholar.google.com/citations?user=1i_fZaoAAAAJ">Google Scholar</a></p>
   </section>
 </main>
+<button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
+  <span class="back-arrow" aria-hidden="true">↑</span>
+  <span data-en="Top" data-zh="顶部">Top</span>
+</button>
 <footer><span data-en="© Yunjia Zhang · Academic homepage hosted on GitHub Pages." data-zh="© 张耘嘉 · 学术主页托管于 GitHub Pages。">© Yunjia Zhang · Academic homepage hosted on GitHub Pages.</span></footer>
 <script>
 (function(){
   const button=document.getElementById('language-toggle');
+  const backButton=document.getElementById('back-to-top');
+  const readingProgress=document.getElementById('reading-progress');
   let current='en';
   function applyLanguage(lang){
     current=lang==='zh'?'zh':'en';
@@ -249,12 +313,38 @@
     button.textContent=current==='zh'?'EN':'中文';
     button.setAttribute('aria-label',current==='zh'?'Switch to English':'切换到中文');
     button.setAttribute('aria-pressed',String(current==='zh'));
+    backButton.setAttribute('aria-label',current==='zh'?'返回顶部':'Back to top');
+    backButton.setAttribute('title',current==='zh'?'返回顶部':'Back to top');
     try{localStorage.setItem('river505-language',current)}catch(e){}
   }
   let initial='en';
   try{initial=localStorage.getItem('river505-language')||'en'}catch(e){}
   applyLanguage(initial);
   button.addEventListener('click',()=>applyLanguage(current==='en'?'zh':'en'));
+
+  // Lightweight scroll controls; respects reduced-motion preferences.
+  const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  function updateScrollState(){
+    const scrollTop=Math.max(0,window.scrollY||document.documentElement.scrollTop||0);
+    const scrollable=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+    const fraction=Math.max(0,Math.min(1,scrollTop/scrollable));
+    readingProgress.style.transform='scaleX('+fraction+')';
+    backButton.classList.toggle('is-visible',scrollTop>420);
+  }
+  let scrollScheduled=false;
+  window.addEventListener('scroll',()=>{
+    if(scrollScheduled) return;
+    scrollScheduled=true;
+    window.requestAnimationFrame(()=>{
+      updateScrollState();
+      scrollScheduled=false;
+    });
+  },{passive:true});
+  window.addEventListener('resize',updateScrollState,{passive:true});
+  backButton.addEventListener('click',()=>{
+    window.scrollTo({top:0,behavior:reducedMotion.matches?'auto':'smooth'});
+  });
+  updateScrollState();
 })();
 </script>
 </body></html>
