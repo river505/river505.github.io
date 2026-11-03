@@ -10,63 +10,112 @@
   <meta property="og:type" content="website" />
   <title>Yunjia Zhang | Academic Homepage</title>
   <style>
-    :root { --ink:#202b39; --muted:#637184; --link:#175a8f; --linkdark:#0d416c; --line:#dce4ec; --soft:#f6f8fa; --paper:#fff; --accent:#2a658f; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; scroll-padding-top:90px; }
-    body { margin:0; background:var(--paper); color:var(--ink); font:15.5px/1.8 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,"Noto Sans CJK SC",sans-serif; -webkit-font-smoothing:antialiased; }
-    a { color:var(--link); text-decoration:none; }
-    a:hover { color:var(--linkdark); text-decoration:underline; text-underline-offset:3px; }
-    a:focus-visible,button:focus-visible { outline:3px solid #95b4d4;outline-offset:3px; }
-    header { position:sticky;top:0;z-index:10;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line); }
-    .nav { max-width:1050px;margin:0 auto;padding:15px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px; }
-    .brand { font:700 21px/1.3 Georgia,"Times New Roman",serif;letter-spacing:-.01em;color:var(--ink);white-space:nowrap; }
-    .nav-links { display:flex;align-items:center;justify-content:flex-end;gap:22px;flex-wrap:wrap; }
-    .nav-links a { font-size:13.5px;color:#48576a;font-weight:500;white-space:nowrap; }
-    .nav-links a:hover { color:var(--link); }
-    .lang-toggle { border:1px solid #cddae7;background:#fff;border-radius:4px;padding:4px 10px;color:var(--link);font-size:12px;font-weight:700;min-width:47px;cursor:pointer; }
-    .container { max-width:1050px;padding:0 24px;margin:0 auto; }
-    main { padding-top:58px;padding-bottom:85px; }
-    .hero { display:grid;grid-template-columns:minmax(0,1fr) 205px;gap:60px;align-items:start; }
-    .eyebrow { color:var(--accent);font-size:11px;font-weight:750;letter-spacing:.17em;text-transform:uppercase; }
-    h1,h2 { font-family:Georgia,"Times New Roman","Noto Serif CJK SC",serif;font-weight:400;letter-spacing:-.025em; }
-    h1 { font-size:46px;line-height:1.22;margin:11px 0 8px; }
-    .chinese-name { font-family:"Songti SC","Noto Serif CJK SC",serif;color:#687689;font-size:26px;letter-spacing:0;white-space:nowrap;margin-left:10px; }
-    .position { color:#435268;font-size:18px;margin:5px 0 7px; }
-    .affiliation { margin:4px 0;font-size:14px;color:var(--muted); }
-    .bio-lead { max-width:670px;color:#465365;font-size:16px;line-height:1.85;margin-top:24px; }
-    .profile-links { display:flex;flex-wrap:wrap;align-items:center;gap:10px 23px;margin-top:19px;font-size:14px;font-weight:600; }
-    .profile-links a::after { content:" ↗";font-size:12px; }
-    .profile-img { width:205px;height:218px;border-radius:3px;border:1px solid var(--line);object-fit:cover;object-position:center;display:block;background:var(--soft); }
-    .image-caption { font-size:12px;color:var(--muted);text-align:center;margin-top:9px; }
-    section { padding-top:36px;margin-top:42px;border-top:1px solid var(--line); }
-    section h2 { font-size:29px;line-height:1.25;margin:0 0 18px; }
-    section p { margin:9px 0 13px; }
-    .intro-text { color:#435164;max-width:850px; }
-    .research-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px; }
-    .research-item { padding:18px 20px;border:1px solid var(--line);background:var(--soft); }
-    .research-item h3 { font-size:15.5px;font-weight:650;line-height:1.5;margin:0 0 5px; }
-    .research-item p { font-size:13.5px;line-height:1.65;margin:0;color:var(--muted); }
-    .scholar-row { display:flex;justify-content:space-between;align-items:end;gap:15px;flex-wrap:wrap; }
-    .metrics { display:flex;gap:33px;align-items:center;margin:4px 0 8px; }
-    .metric strong { display:block;font:400 28px/1.2 Georgia,serif;color:var(--ink);font-variant-numeric:tabular-nums; }
-    .metric span { display:block;font-size:11px;color:var(--muted); }
-    .aside-note { font-size:12px;color:#748294;margin:12px 0 18px; }
-    .publication { display:grid;grid-template-columns:62px minmax(0,1fr);gap:18px;padding:17px 0;border-top:1px solid #e9edf2; }
-    .publication .year { color:#718096;font-size:13px;padding-top:3px; }
-    .publication h3 { font-size:15.5px;line-height:1.52;font-weight:650;margin:0 0 6px; }
-    .publication .authors,.publication .venue { font-size:13.5px;line-height:1.65;color:var(--muted);margin:3px 0; }
-    .publication .venue em { color:#3f556b;font-style:normal; }
-    .publication .publication-links { font-size:13px;margin:6px 0 0; }
-    .pill { display:inline-block;font-size:11px;line-height:1.4;font-weight:600;color:#375e80;background:#eef4f9;border-radius:3px;padding:3px 6px;margin-right:8px;vertical-align:1px; }
-    .project,.experience { display:grid;grid-template-columns:130px minmax(0,1fr);gap:18px;padding:16px 0;border-top:1px solid #e9edf2; }
-    .project .kind,.experience .kind { color:#718096;font-size:12.5px;padding-top:4px; }
-    .project h3,.experience h3 { font-size:15.5px;margin:0 0 3px;line-height:1.5; }
-    .project p,.experience p { font-size:14px;color:var(--muted);margin:0; }
-    .notice { font-size:12px;color:#728092;margin-top:18px; }
-    footer { border-top:1px solid var(--line);text-align:center;font-size:12px;color:#84909c;padding:24px; }
-    @media (max-width:780px) { .nav{align-items:flex-start;flex-direction:column;gap:10px}.nav-links{gap:11px 18px;justify-content:flex-start}.hero{grid-template-columns:minmax(0,1fr) 155px;gap:27px}.profile-img{width:155px;height:175px}h1{font-size:39px}.chinese-name{font-size:23px}main{padding-top:38px} }
-    @media (max-width:570px) { body{font-size:15px}.container,.nav{padding-left:19px;padding-right:19px}.hero{grid-template-columns:1fr;gap:18px}.hero-photo{grid-row:1}.profile-img{width:128px;height:139px}.image-caption{display:none}h1{font-size:38px}.chinese-name{display:block;margin:8px 0 0}.position{font-size:16px}.research-grid{grid-template-columns:1fr}.publication,.project,.experience{grid-template-columns:1fr;gap:2px}.publication{padding:18px 0}.metrics{gap:24px}.nav-links{gap:9px 15px}.nav-links a{font-size:12.5px}section{margin-top:31px;padding-top:28px}section h2{font-size:26px} }
-    @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto} }
+    :root {
+      color-scheme: light;
+      --ink: #202d3c;
+      --muted: #627084;
+      --link: #1e557d;
+      --linkdark: #123e5d;
+      --line: #e2e7eb;
+      --soft: #f8fafb;
+      --paper: #ffffff;
+      --accent: #31678a;
+      --serif: Georgia, "Times New Roman", "Noto Serif CJK SC", "Songti SC", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 15.5px/1.83 var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: var(--link); text-decoration: none; transition: color .18s ease; }
+    a:hover { color: var(--linkdark); text-decoration: underline; text-underline-offset: 4px; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #9ec3d9; outline-offset: 4px; border-radius: 2px; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    .nav { max-width: 1060px; margin: 0 auto; padding: 15px 30px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { font: 600 21px/1.3 var(--serif); letter-spacing: -.025em; color: var(--ink); white-space: nowrap; }
+    .brand:hover { text-decoration: none; color: var(--accent); }
+    .nav-links { display: flex; align-items: center; justify-content: flex-end; gap: 24px; flex-wrap: wrap; }
+    .nav-links a { font-size: 13px; color: #546173; font-weight: 550; white-space: nowrap; position: relative; }
+    .nav-links a::after { content: ""; display: block; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--link); transition: width .2s ease; }
+    .nav-links a:hover { color: var(--link); text-decoration: none; }
+    .nav-links a:hover::after { width: 100%; }
+    .lang-toggle { border: 1px solid #d0dce6; background: #f8fbfd; border-radius: 5px; padding: 5px 11px; color: var(--link); font-size: 12px; font-weight: 700; min-width: 51px; cursor: pointer; transition: background .18s ease, border-color .18s ease; }
+    .lang-toggle:hover { background: #edf4f8; border-color: #9fb9cb; }
+    .container { max-width: 1060px; padding: 0 30px; margin: 0 auto; }
+    main { padding-top: 72px; padding-bottom: 100px; }
+    .hero { display: grid; grid-template-columns: minmax(0,1fr) 212px; gap: 64px; align-items: start; padding-bottom: 8px; }
+    h1, h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -.025em; }
+    h1 { font-size: clamp(38px, 4.4vw, 51px); line-height: 1.16; margin: 0 0 17px; }
+    .chinese-name { font-family: "Songti SC", "Noto Serif CJK SC", serif; color: #7b8592; font-size: .52em; font-weight: 400; letter-spacing: .015em; white-space: nowrap; margin-left: 12px; }
+    .position { color: #36536b; font-size: 18px; margin: 0 0 10px; font-weight: 500; letter-spacing: -.01em; }
+    .affiliation { margin: 2px 0; font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .bio-lead { max-width: 660px; color: #425268; font-size: 16px; line-height: 1.85; margin: 25px 0 0; }
+    .profile-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; margin-top: 24px; font-size: 14px; font-weight: 600; }
+    .profile-links a::after { content: " ↗"; font-size: 12px; }
+    .hero-photo { position: relative; }
+    .profile-img { display: block; width: 212px; height: 233px; border-radius: 7px; border: 1px solid #e0e5e9; object-fit: cover; object-position: center; background: var(--soft); box-shadow: 0 9px 27px rgba(29,52,74,.08); }
+    section { padding-top: 37px; margin-top: 46px; border-top: 1px solid var(--line); }
+    section h2 { font-size: 29px; line-height: 1.3; margin: 0 0 21px; }
+    section h2::before { content: ""; display: inline-block; width: 3px; height: 19px; background: #6b9ab7; border-radius: 2px; margin-right: 12px; vertical-align: -1px; }
+    section p { margin: 9px 0 14px; }
+    .intro-text { color: #425268; max-width: 860px; line-height: 1.9; }
+    .research-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 15px; }
+    .research-item { padding: 22px 23px; border: 1px solid var(--line); border-radius: 6px; background: linear-gradient(160deg,#fff 0%,#f9fbfc 100%); box-shadow: 0 2px 7px rgba(30,50,70,.025); transition: transform .18s ease,border-color .18s ease,box-shadow .18s ease; }
+    .research-item:hover { transform: translateY(-2px); border-color: #c7d9e5; box-shadow: 0 6px 17px rgba(30,50,70,.055); }
+    .research-item h3 { font-size: 15.5px; font-weight: 650; line-height: 1.5; margin: 0 0 7px; }
+    .research-item p { font-size: 13.5px; line-height: 1.75; margin: 0; color: var(--muted); }
+    .scholar-row { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+    .scholar-row > a { font-size: 13px; font-weight: 600; }
+    .metrics { display: inline-flex; gap: 0; align-items: center; margin: 5px 0 9px; border: 1px solid var(--line); border-radius: 6px; background: #fbfcfd; }
+    .metric { padding: 13px 25px 11px; min-width: 96px; }
+    .metric + .metric { border-left: 1px solid var(--line); }
+    .metric strong { display: block; font: 400 29px/1.2 var(--serif); color: var(--ink); font-variant-numeric: tabular-nums; }
+    .metric span { display: block; font-size: 11.5px; color: var(--muted); margin-top: 3px; }
+    .aside-note { font-size: 12px; color: #7a8795; margin: 12px 0 23px; }
+    .publication { display: grid; grid-template-columns: 63px minmax(0,1fr); gap: 23px; padding: 21px 4px; border-top: 1px solid #e9eef2; }
+    .publication .year { color: #6a8194; font-size: 13px; font-weight: 650; padding-top: 2px; font-variant-numeric: tabular-nums; }
+    .publication h3 { font-size: 15.5px; line-height: 1.53; font-weight: 650; margin: 0 0 7px; }
+    .publication .authors,.publication .venue { font-size: 13.5px; line-height: 1.65; color: var(--muted); margin: 3px 0; }
+    .publication .venue em { color: #40576b; font-style: normal; }
+    .publication .publication-links { font-size: 13px; margin: 6px 0 0; }
+    .pill { display: inline-block; font-size: 11px; line-height: 1.5; font-weight: 650; color: #3c6684; background: #eef4f7; border: 1px solid #e2edf3; border-radius: 4px; padding: 2px 7px; margin-right: 7px; vertical-align: 1px; }
+    .project,.experience { display: grid; grid-template-columns: 130px minmax(0,1fr); gap: 22px; padding: 20px 3px; border-top: 1px solid #e9eef2; }
+    .project .kind,.experience .kind { color: #698197; font-size: 12.5px; font-weight: 550; padding-top: 4px; }
+    .project h3,.experience h3 { font-size: 15.5px; margin: 0 0 5px; line-height: 1.5; }
+    .project p,.experience p { font-size: 14px; color: var(--muted); margin: 0; }
+    .notice { font-size: 12px; color: #728092; margin-top: 18px; }
+    footer { border-top: 1px solid var(--line); text-align: center; font-size: 12px; color: #83909d; padding: 28px 20px; background: #fcfcfc; }
+    @media (max-width: 850px) {
+      .nav { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .nav-links { gap: 10px 19px; justify-content: flex-start; }
+      .hero { grid-template-columns: minmax(0,1fr) 172px; gap: 32px; }
+      .profile-img { width: 172px; height: 196px; }
+      main { padding-top: 46px; }
+    }
+    @media (max-width: 610px) {
+      body { font-size: 15px; }
+      .container,.nav { padding-left: 20px; padding-right: 20px; }
+      .nav-links { gap: 8px 15px; }
+      .nav-links a { font-size: 12.5px; }
+      .hero { grid-template-columns: 1fr; gap: 22px; }
+      .hero-photo { grid-row: 1; }
+      .profile-img { width: 126px; height: 138px; }
+      h1 { font-size: 39px; line-height: 1.17; }
+      .chinese-name { display: block; margin: 9px 0 0; font-size: 22px; }
+      .position { font-size: 16px; }
+      .bio-lead { font-size: 15px; }
+      .research-grid { grid-template-columns: 1fr; gap: 11px; }
+      .research-item { padding: 18px; }
+      .publication,.project,.experience { grid-template-columns: 1fr; gap: 5px; }
+      .publication { padding: 19px 0; }
+      .project,.experience { padding: 18px 0; }
+      .metrics { max-width: 100%; }
+      .metric { min-width: 82px; padding: 11px 15px; }
+      section { margin-top: 34px; padding-top: 30px; }
+      section h2 { font-size: 26px; }
+      section h2::before { height: 17px; }
+      main { padding-bottom: 60px; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none!important; } }
   </style>
 </head>
 <body>
@@ -85,7 +134,6 @@
 <main class="container" id="top">
   <div class="hero">
     <div>
-      <div class="eyebrow" data-en="ACADEMIC HOMEPAGE" data-zh="个人学术主页">ACADEMIC HOMEPAGE</div>
       <h1>Yunjia Zhang <span class="chinese-name">张耘嘉</span></h1>
       <p class="position" data-en="Ph.D. Researcher · Machine Learning &amp; AI for Healthcare" data-zh="博士研究生 · 机器学习与医学人工智能">Ph.D. Researcher · Machine Learning &amp; AI for Healthcare</p>
       <p class="affiliation" data-en="China University of Geosciences (Beijing) · Control Science and Engineering" data-zh="中国地质大学（北京）· 控制科学与工程">China University of Geosciences (Beijing) · Control Science and Engineering</p>
@@ -99,7 +147,6 @@
     </div>
     <div class="hero-photo">
       <img class="profile-img" src="https://avatars.githubusercontent.com/u/98887550?v=4" alt="Profile avatar of Yunjia Zhang" />
-      <div class="image-caption" data-en="Research · Machine Learning · Healthcare" data-zh="科研 · 机器学习 · 医学人工智能">Research · Machine Learning · Healthcare</div>
     </div>
   </div>
 
@@ -176,7 +223,8 @@
 
   <section id="experience" aria-labelledby="experience-heading">
     <h2 id="experience-heading" data-en="Experience &amp; Affiliations" data-zh="教育与科研经历">Experience &amp; Affiliations</h2>
-    <article class="experience"><div class="kind" data-en="Doctoral Studies" data-zh="博士阶段">Doctoral Studies</div><div><h3 data-en="China University of Geosciences (Beijing)" data-zh="中国地质大学（北京）">China University of Geosciences (Beijing)</h3><p data-en="Ph.D. research in Control Science and Engineering; machine learning and biomedical applications." data-zh="控制科学与工程博士研究，方向为机器学习及生物医学应用。">Ph.D. research in Control Science and Engineering; machine learning and biomedical applications.</p></div></article>
+    <article class="experience"><div class="kind" data-en="Doctoral Studies" data-zh="博士阶段">Doctoral Studies</div><div><h3 data-en="China University of Geosciences (Beijing)" data-zh="中国地质大学（北京）">China University of Geosciences (Beijing)</h3><p data-en="Ph.D. in Control Science and Engineering · Research in machine learning and biomedical AI." data-zh="控制科学与工程博士研究生 · 研究方向为机器学习与医学人工智能。">Ph.D. in Control Science and Engineering · Research in machine learning and biomedical AI.</p></div></article>
+    <article class="experience"><div class="kind" data-en="Undergraduate Studies" data-zh="本科阶段">Undergraduate Studies</div><div><h3 data-en="China University of Geosciences (Beijing)" data-zh="中国地质大学（北京）">China University of Geosciences (Beijing)</h3><p data-en="B.Eng. in Computer Science and Technology." data-zh="计算机科学与技术 · 工学学士。">B.Eng. in Computer Science and Technology.</p></div></article>
   </section>
 
   <section id="contact" aria-labelledby="contact-heading">
